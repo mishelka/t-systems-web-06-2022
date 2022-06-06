@@ -19,7 +19,7 @@ table thead tr {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: cornflowerblue;
+	color: #007cc5;
 	font-family: sans-serif
 }
 
@@ -38,9 +38,19 @@ p {
 /*	border: 1px solid #222;*/
 /*}*/
 
-form .form-input {
+form .form-input, form textarea {
 	border: 1px solid #222;
 	padding: 0.5rem;
+	width: 100%;
+}
+
+form textarea {
+	display: block;
+	overflow-y: auto;
+}
+
+form input[type="submit"] {
+	margin-top: 1rem;
 }
 
 /* na vsetky formularove prvky: */
@@ -49,12 +59,30 @@ form .form-input {
 /*	padding: 0.5rem;*/
 /*}*/
 
-form .form-input:focus, form .form-input:hover {
-	border: 1px solid red;
+form .form-input:focus {
+	outline: none !important;
+	border-bottom: 2px solid #003858;
 }
 
 a {text-decoration: none}
-a:link {color: #FF0000;}
-a:visited {color: #00FF00;}
-a:hover {color: #FF00FF; text-decoration: underline; }
-a:active {color: #0000FF;}
+a:link, a:visited {color: #05A0FB;}
+a:hover {color: #E8AA00; text-decoration: underline; }
+a:active {color: #003858;}
+
+button, input[type="submit"] {
+	border: 1px solid #003858;
+	background-color: #005d94;
+	padding: 0.5rem 1rem;
+	color: white;
+}
+
+button:hover, input[type="submit"]:hover {
+	border: 1px solid #BB8900;
+	background-color: #E8AA00;
+	box-shadow: 5px 10px 18px #888888;
+}
+
+button:active, input[type="submit"]:active {
+	background-color: #BB8900;
+	box-shadow: 2.5px 5px 9px #888888;
+}
