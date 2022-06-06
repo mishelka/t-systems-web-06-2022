@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: sans-serif
 }
 
-p.greenParagrapfh {
+p.greenParagraph {
 	background-color: darkgreen;
 }
 
@@ -84,5 +84,5 @@ button:hover, input[type="submit"]:hover {
 
 button:active, input[type="submit"]:active {
 	background-color: #BB8900;
-	box-shadow: 2.5px 5px 9px #888888;
+	box-shadow: 2px 5px 9px #888888;
 }
