@@ -13,6 +13,11 @@
 */
 const size = 10;
 
+function printSquare(size) {
+  console.log(">>> SQUARE " + size);
+  //for(... i < size)
+}
+
 function printTriangle() {
     let i = 0;
     let str = '';

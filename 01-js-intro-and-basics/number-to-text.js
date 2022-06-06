@@ -1,9 +1,9 @@
 //Test on inputs 234 and 2132
-var numberToTest = "234";
+const numberToTest = "234"; //two hundred thirty four
 
 //TODO: Fix main function
-function numberToText(num) {
-    var number = +numberToTest;
+function numberToText() {
+    let number = +numberToTest;
 
     if(number >= 1000) {
         writeNumber(number % 1000);
