@@ -1,6 +1,13 @@
 <html>
 	<head>
 		<title>Moj prvy web</title>
+		<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+		<!--style>
+			body {
+				background-color: black;
+				color: white;
+			}
+		</style-->
 	</head>
 	<body>
 		<h1>Nejaky    nadpisj
@@ -19,7 +26,7 @@
 		<h3> treti nadpis </h3>
 		<p>Odsek prvy </p>
 		<hr>
-		<p>Odsek druhy </p>
+		<p class="greenParagrapfh">Odsek druhy </p>
 		
 		<pre attr="toto ano!">
 			hello world
@@ -41,6 +48,9 @@
 			<a href="https://www.w3schools.com"
 			   target="_blank"
 			>Visit W3Schools</a>
+			<a href="https://kpi.fei.tuke.sk"
+			   target="_blank"
+			>KPI</a>
 			
 			<img src="https://play-lh.googleusercontent.com/JbbLS27I3Oi6SZVsWS-orybEiC1WUW6IeD91pTjONgqVncBaZ9thJay-5RY8v4UgF3k" 
 				 alt="Italian Trulli" height="300">
@@ -94,25 +104,29 @@
 			<form onsubmit="alert('eureka!');return false">
 				<label for="fname">First name:</label>
 				<br>
-				<input type="text" id="fname" name="fname">
+				<input type="text" id="fname" name="fname"
+							 class="form-input">
 				
 				<br>
 				
 				<label for="lname">Last name:</label>
 				<br>
-				<input type="text" id="lname" name="lname">
+				<input type="text" id="lname" name="lname"
+				       class="form-input">
 				
 				<br>
 				
 				<label for="pass">Password:</label>
 				<br>
-				<input type="password" id="pass" name="pass">
+				<input type="password" id="pass" name="pass"
+							 class="form-input">
 				
 				<br>
 				
 				<label for="colors">Colors:</label>
 				<br>
-				<select id="colors" name="colors">
+				<select id="colors" name="colors"
+								class="form-input">
 					<option value="red">Red</option>
 					<option value="blue">Blue</option>
 					<option value="green">Green</option>

@@ -1,0 +1,60 @@
+html {
+	font-size: 12px;
+	color: #222;
+}
+
+/** {*/
+/*	display: inline-block;*/
+/*}*/
+
+table {
+	font-size: 10px;
+	background-color: #fff;
+	color: #222;
+	margin: 20px;
+}
+
+table thead tr {
+	background-color: lightgrey;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: cornflowerblue;
+	font-family: sans-serif
+}
+
+p.greenParagrapfh {
+	background-color: darkgreen;
+}
+
+p {
+	font-size: 10px;
+	background-color: black;
+	color: white;
+	padding: 1rem;
+}
+
+/*form #lname, form #fname {*/
+/*	border: 1px solid #222;*/
+/*}*/
+
+form .form-input {
+	border: 1px solid #222;
+	padding: 0.5rem;
+}
+
+/* na vsetky formularove prvky: */
+/*form input, form select { */
+/*	border: 1px solid #222;*/
+/*	padding: 0.5rem;*/
+/*}*/
+
+form .form-input:focus, form .form-input:hover {
+	border: 1px solid red;
+}
+
+a {text-decoration: none}
+a:link {color: #FF0000;}
+a:visited {color: #00FF00;}
+a:hover {color: #FF00FF; text-decoration: underline; }
+a:active {color: #0000FF;}
