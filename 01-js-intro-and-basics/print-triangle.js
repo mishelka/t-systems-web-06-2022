@@ -15,7 +15,7 @@ const size = 10;
 
 const printSquare = size => console.log(">>> SQUARE " + size);
 
-function printTriangle() {
+const printTriangle = () => {
     let i = 0;
     let str = '';
     while(i < size) {

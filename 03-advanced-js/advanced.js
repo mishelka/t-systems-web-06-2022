@@ -29,12 +29,13 @@ function deleteThird(array) {
   }
 }
 
-const obj = { name: 'Michaela', surname: 'Bacikova', speak: () => console.log('Ahoj! ja som Miska!') };
-const obj2 = obj;
-console.log(obj);
-rename(obj2);
-console.log(obj);
-obj.speak();
+const person = { name: 'Michaela', surname: 'Bacikova', speak: () => console.log('Ahoj! ja som Miska!') };
+const person2 = person;
+console.log(person);
+rename(person2);
+console.log(person);
+person.speak();
+console.log(`Ahoj, ja som ${person ? person.name : ' no name '} ${person ? person.surname : ''}`);
 
 const arr = [1, 2, 3, 4, 5];
 const arr2 = arr;
@@ -78,3 +79,39 @@ function nova() {
   //return writeToConsole;
   return () => console.log("time ran out 2!");
 }
+
+function sum(...args) {
+  const privatnaFunkcia = () => {
+    console.log("THIS IS PRIVATE");
+  }
+
+  console.log(args);
+  let sum = 0; //private in function
+  for (let arg of args) sum += arg;
+  return sum;
+  var xyz = "xyz"; //private in function
+}
+let x = sum(4, 9, 16, 25, 29, 100, 66, 77, "abc"); //global
+console.log(x);
+
+{
+  var mna = 120; //not private in block!
+  let abc = 123;
+  const cde = 234;
+  abc = 5;
+  //cde = 5;
+
+  console.log(mna, abc, cde);
+}
+
+console.log(mna/*, abc, cde, xyz*/); //abc, cde, xyz are not global
+
+// const r = confirm("Press a button");
+// if(r === true)
+//   document.write("Pressed OK!");
+// else
+//   document.write("Pressed Cancel!");
+
+// const name = prompt("Enter your name", "Bond");
+// if(name != null && name !== "")
+//   document.write("Hello " + name);
