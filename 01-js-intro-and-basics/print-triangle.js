@@ -13,10 +13,7 @@
 */
 const size = 10;
 
-function printSquare(size) {
-  console.log(">>> SQUARE " + size);
-  //for(... i < size)
-}
+const printSquare = size => console.log(">>> SQUARE " + size);
 
 function printTriangle() {
     let i = 0;
@@ -28,7 +25,7 @@ function printTriangle() {
     }
 }
 
-function getChars(length, character) {
+const getChars = (length, character) => {
 	let str = '';
 	
 	for(let i = 0; i < length; i++) {

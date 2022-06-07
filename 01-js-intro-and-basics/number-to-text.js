@@ -2,8 +2,10 @@
 const numberToTest = "234"; //two hundred thirty four
 
 //TODO: Fix main function
-function numberToText() {
-    let number = +numberToTest;
+function numberToText(num) {
+
+    //+num +numberToText
+    let number = Number.parseInt(num);
 
     if(number >= 1000) {
         writeNumber(number % 1000);
