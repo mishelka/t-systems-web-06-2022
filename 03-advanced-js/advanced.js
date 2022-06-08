@@ -29,6 +29,8 @@ function deleteThird(array) {
   }
 }
 
+console.log(array.length);
+
 const person = { name: 'Michaela', surname: 'Bacikova', speak: () => console.log('Ahoj! ja som Miska!') };
 const person2 = person;
 console.log(person);
