@@ -16,7 +16,12 @@ const array = [1, 2, 3, 4, 5, 6];
 console.log(array[2]);
 array[2] = 7;
 
-const persons = [{name: "Michaela", age: 38}, {name: "Peter", age: 40}, {name: "Maria", age: 50}];
+const persons = [
+  {name: "Michaela", age: 38},
+  {name: "Peter", age: 40},
+  {name: "Maria", age: 50},
+  {name: "Peter", age: 22},
+];
 console.log("length", array.length);
 console.log("toString", array.toString());
 
@@ -72,3 +77,12 @@ console.log(array.includes(4));
 let obj = { x: 1, y: 2, a: 3, b: 4 };
 let obj2 = {...obj};
 console.log(obj2);
+
+let sorted = persons.sort(
+  (p1, p2) => {
+    const nameCompare = p1.name.localeCompare(p2.name);
+    if(nameCompare !== 0) return nameCompare;
+    return p1.age - p2.age;
+  }
+);
+console.log(sorted);

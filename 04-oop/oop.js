@@ -29,7 +29,7 @@ class Employee extends Person {
 }
 
 class Student extends Person {
-  constructor(name, age = 0, isicNumber) {
+  constructor(name, age = 0, isicNumber = "") {
     super(name, age);
     this.isicNumber = isicNumber;
   }
@@ -57,11 +57,6 @@ class Car {
     this.type = type;
     this.numberOfDoors = numberOfDoors;
     this.started = false;
-    if(person instanceof Person) {
-      this.owner = owner;
-    } else {
-      console.log('owner is not a person');
-    }
   }
   start() {
     this.started = true;
@@ -118,3 +113,13 @@ console.log(truck);
 truck.loadStuff("jahody");
 truck.start();
 console.log(truck);
+
+const persons = [
+  new Person("Michaela", 28),
+  new Employee("Peter", 22, "manager"),
+  new Student("Peter", 40),
+  new Person("Maria", 50),
+  new Employee("Peter", 22, "copy worker"),
+];
+
+console.log(persons.filter(p => p instanceof Employee));
