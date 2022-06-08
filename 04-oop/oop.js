@@ -50,3 +50,71 @@ console.log(employee.describe());
 const student = new Student('Michaela', 18, '1234567');
 console.log(student);
 console.log(student.describe());
+
+class Car {
+  constructor(brand, type = "sedan", numberOfDoors = 4, owner) {
+    this.brand = brand;
+    this.type = type;
+    this.numberOfDoors = numberOfDoors;
+    this.started = false;
+    if(person instanceof Person) {
+      this.owner = owner;
+    } else {
+      console.log('owner is not a person');
+    }
+  }
+  start() {
+    this.started = true;
+    console.log("The car is started.");
+  }
+  stop() {
+    this.started = false;
+    console.log("The car has stopped.");
+  }
+  isStarted() {
+    console.log(this.started ? "The cars is started." : "The car is stopped.");
+  }
+}
+
+class PersonalCar extends Car {
+  constructor(brand, type = "sedan", numberOfDoors = 4, numberOfSeats = 4) {
+    super(brand, type, numberOfDoors);
+    this.numberOfSeats = numberOfSeats;
+  }
+}
+
+class Truck extends Car {
+  constructor(brand, type = "sedan", numberOfDoors = 4, load =  null) {
+    super(brand, type, numberOfDoors);
+    this.load = load;
+  }
+
+  loadStuff(stuff) {
+    this.load = stuff;
+  }
+
+  unloadStuff() {
+    this.load = null;
+  }
+}
+
+const car = new Car("bmw");
+car.owner = personObj;
+car.start();
+console.log(car);
+car.stop();
+console.log(car);
+car.isStarted();
+console.log(car.started);
+console.log("OWNER: ", car.owner.name);
+console.log(car.owner.describe());
+
+const personalCar = new PersonalCar("audi");
+personalCar.isStarted();
+console.log(personalCar, "seats: ", personalCar.numberOfSeats);
+
+const truck = new Truck("avia");
+console.log(truck);
+truck.loadStuff("jahody");
+truck.start();
+console.log(truck);
