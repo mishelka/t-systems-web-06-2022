@@ -9,15 +9,18 @@
   <div id="personForm">
     <form name="personForm" onsubmit="return validate(event)">
       Enter your name:
-      <input type="text" id="fname" name="fname" onblur="upperCase()"><br/>
+      <input type="text" id="fname" name="fname" onblur="upperCase(event)"><br/>
 
       <input id="color-red" name="color" type="radio" value="red">Red<br/>
       <input id="color-blue" name="color" type="radio" value="blue">Blue<br/>
       <input id="color-green" name="color" type="radio" value="green">Green<br/>
 
       <button type="submit">Submit</button>
+      <input type="Submit" label="Submit">
     </form>
   </div>
+
+  <button oncontextmenu="rightClickHandler(event)">Click me with right button!</button>
 
   <noscript>
     <p> Your browser either does not support JavaScript,

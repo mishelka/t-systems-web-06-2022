@@ -1,8 +1,10 @@
 "use strict";
 
-function upperCase() {
+function upperCase(event) {
   //getElementById, getElementsByName
-  let elem = document.getElementById("fname");
+  console.log(event);
+  //let elem = document.getElementById("fname");
+  let elem = event.target;
   console.log("You wrote: " + elem.value + ", type: " + elem.type);
   document.getElementById("fname").value = elem.value.toUpperCase();
 }
@@ -24,4 +26,10 @@ function validate(event) {
   console.log("name: " + fname, "color: " + color);
 
   thankYou();
+}
+
+function rightClickHandler(event) {
+  event.preventDefault();
+  console.log(event);
+  console.log("RIGHT CLICK!");
 }
