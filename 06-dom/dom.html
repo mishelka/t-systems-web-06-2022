@@ -7,7 +7,7 @@
 </head>
 <body>
   <div id="personForm">
-    <form name="personForm">
+    <form name="personForm" onsubmit="return validate(event)">
       Enter your name:
       <input type="text" id="fname" name="fname" onblur="upperCase()"><br/>
 
@@ -15,7 +15,7 @@
       <input id="color-blue" name="color" type="radio" value="blue">Blue<br/>
       <input id="color-green" name="color" type="radio" value="green">Green<br/>
 
-      <button onclick="validate()">Submit</button>
+      <button type="submit">Submit</button>
     </form>
   </div>
 
