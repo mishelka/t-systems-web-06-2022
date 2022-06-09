@@ -16,8 +16,10 @@ const persons = [
   new Person("Peter", 22, new Date(),"male"),
   new Person("Michaela", 22, new Date(),"female"),
 ];
+
 window.onload = function() {
   renderTable();
+  $("#personForm").html("<h1>HELLO! NO FORM HERE!</h1>");
 }
 
 function upperCase(event) {
@@ -65,13 +67,18 @@ function rightClickHandler(event) {
 
 function hideName(event) {
   console.log(event.target.name + ": " + event.target.checked);
-  const nameContainer = document.getElementById("nameContainer");
+  // const nameContainer = document.getElementById("nameContainer");
+  // if(event.target.checked) {
+  //   nameContainer.setAttribute("class", "hidden");
+  // } else {
+  //   if(nameContainer.getAttribute("class") !== null) {
+  //     nameContainer.removeAttribute("class");
+  //   }
+  // }
   if(event.target.checked) {
-    nameContainer.setAttribute("class", "hidden");
+    $("#nameContainer").addClass("hidden");
   } else {
-    if(nameContainer.getAttribute("class") !== null) {
-      nameContainer.removeAttribute("class");
-    }
+    $("#nameContainer").removeClass("hidden");
   }
   // if(event.target.checked) {
   //   document.getElementById("personF").removeChild(document.getElementById("fname"));
@@ -79,7 +86,7 @@ function hideName(event) {
 }
 
 function moveLi() {
-  let superWidget = document.getElementById("widget1");
+  let superWidget = $("#widget1");
   let ul = superWidget.parentNode;
   //ul.innerHtml += superWidget; !! pozor neodstranuje povodny element, nespravi nic!
   ul.appendChild(superWidget);

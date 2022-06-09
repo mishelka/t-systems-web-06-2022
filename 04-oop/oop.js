@@ -147,9 +147,15 @@ function renderTable() {
         <td>${person.age}</td>
         <td>${person.birthDate}</td>
         <td>${person.gender}</td>
+        <td><button onclick="handleDelete(person)">Delete</button></td>
       </tr>
     `;
   }
+}
+
+function handleDelete(personToDelete) {
+  persons = persons.filter(p => p.name === personToDelete.name);
+  renderTable();
 }
 
 function storePersons() {
