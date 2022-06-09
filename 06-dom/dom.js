@@ -1,6 +1,7 @@
 "use strict";
 
 function upperCase() {
+  //getElementById, getElementsByName
   let elem = document.getElementById("fname");
   console.log("You wrote: " + elem.value + ", type: " + elem.type);
   document.getElementById("fname").value = elem.value.toUpperCase();
