@@ -4,8 +4,27 @@
   <meta charset="UTF-8">
   <title>OOP</title>
   <script type="text/javascript" src="oop.js"></script>
+  <link rel="stylesheet" type="text/css" href="oop.css">
 </head>
 <body>
+  <div id="personFormContainer" class="form">
+    <form name="personForm" onsubmit="submitHandler(event)">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br/>
+      <label for="birthDate">Birth Date:</label>
+      <input type="date" id="birthDate" name="birthDate"><br/>
+      <label for="gender">Gender:</label><br/>
+      <div id="gender" class="radioGroup">
+        <input type="radio" id="gender-female" name="gender" value="female">
+        <label for="gender-female">Female</label><br/>
+        <input type="radio" id="gender-male" name="gender" value="male">
+        <label for="gender-male">Male</label><br/>
+        <input type="radio" id="gender-other" name="gender" value="other">
+        <label for="gender-other">Other</label><br/>
+      </div>
+      <input type="submit" label="Submit">
+    </form>
+  </div>
   <noscript>
     <p> Your browser either does not support JavaScript,
       or you have JavaScript turned off. </p>

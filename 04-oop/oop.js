@@ -9,13 +9,14 @@
 // person.printPerson();
 
 class Person {
-  constructor(name, age = 0, birthDate = new Date()) {
+  constructor(name, age = 0, birthDate = new Date(), gender = null) {
     this.name = name;
     this.age = age;
     this.birthDate = birthDate;
+    this.gender = gender;
   }
   describe() {
-    return `Person called ${this.name}, age ${this.age} born ${this.birthDate.toLocaleDateString()}`;
+    return `Person called ${this.name}, age ${this.age} born ${this.birthDate?.toLocaleDateString()}, ${this.gender}`;
   }
 }
 
@@ -48,9 +49,9 @@ const employee = new Employee('Michaela', 38, new Date(1984, 11, 15), 'lector');
 console.log(employee);
 console.log(employee.describe());
 
-const student = new Student('Michaela', 18, '1234567');
-console.log(student);
-console.log(student.describe());
+// const student = new Student('Michaela', 18, '1234567');
+// console.log(student);
+// console.log(student.describe());
 
 class Car {
   constructor(brand, type = "sedan", numberOfDoors = 4, owner) {
@@ -117,10 +118,28 @@ console.log(truck);
 
 const persons = [
   new Person("Michaela", 28),
-  new Employee("Peter", 22, "manager"),
+  new Employee("Peter", 22, new Date(), "manager"),
   new Student("Peter", 40),
   new Person("Maria", 50),
-  new Employee("Peter", 22, "copy worker"),
+  new Employee("Peter", 22, new Date(),"copy worker"),
 ];
 
 console.log(persons.filter(p => p instanceof Employee));
+
+const submitHandler = (event) => {
+  event.preventDefault();
+  console.clear();
+  const name = document.personForm.name.value;
+  const birthDate = new Date(document.personForm.birthDate.value);
+  const gender = document.personForm.gender.value;
+
+  //validation
+
+  console.log(birthDate);
+  const age = new Date().getFullYear() - birthDate.getFullYear();
+  console.log(age);
+  const person = new Person(name, age, birthDate, gender);
+  console.log(person);
+  persons.push(person);
+  console.log(persons);
+}
