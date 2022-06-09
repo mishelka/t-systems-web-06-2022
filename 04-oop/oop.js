@@ -1,12 +1,5 @@
 "use strict";
-
-// const person = { name: 'Michaela', surname: 'Bacikova', printPerson: () => { console.log("I am a person"); } };
-//
-// console.log(person);
-// console.log(person.name);
-// person.name = 'Peter';
-//
-// person.printPerson();
+let persons = [];
 
 class Person {
   constructor(name, age = 0, birthDate = new Date(), gender = null) {
@@ -116,15 +109,8 @@ truck.loadStuff("jahody");
 truck.start();
 console.log(truck);
 
-const persons = [
-  new Person("Michaela", 38, new Date(1984, 11, 15), "female"),
-  new Person("Peter", 39, new Date(1983, 0, 14), "male"),
-  new Employee("Peter", 22, new Date(), "male", "manager"),
-  new Student("Maria", 40, new Date(), "female"),
-  new Employee("Peter", 22, new Date(),"male", "copy worker"),
-];
-
 window.onload = function() {
+  loadPersons();
   renderTable();
 }
 
@@ -145,6 +131,7 @@ const submitHandler = (event) => {
   const person = new Person(name, age, birthDate, gender);
   console.log(person);
   persons.push(person);
+  storePersons();
   renderTable();
   console.log(persons);
 }
@@ -158,9 +145,25 @@ function renderTable() {
       <tr>
         <td>${person.name}</td>
         <td>${person.age}</td>
-        <td>${person.birthDate.toLocaleDateString()}</td>
+        <td>${person.birthDate}</td>
         <td>${person.gender}</td>
       </tr>
     `;
   }
+}
+
+function storePersons() {
+  console.log(persons);
+  localStorage.setItem('persons',JSON.stringify(persons));
+  //document.cookie = JSON.stringify(persons);
+}
+
+function loadPersons() {
+  console.clear();
+  const data = localStorage.getItem('persons');
+  const pole = JSON.parse(data);
+  console.log("data loaded: ", pole);
+  persons = JSON.parse(data);
+  console.log(data);
+  //console.log(JSON.parse(document.cookie));
 }
