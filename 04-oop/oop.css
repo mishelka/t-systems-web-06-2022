@@ -17,6 +17,10 @@
 .form .radioGroup input[type="radio"]:first-child {
     margin-top: 0.5rem;
 }
-.form .radioGroup input[type="radio"]:last-child {
-    margin-bottom: 0.5rem;
+.form .radioGroup input[type="radio"]:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+#personTable {
+    margin: 2rem 0;
 }

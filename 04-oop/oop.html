@@ -4,10 +4,28 @@
   <meta charset="UTF-8">
   <title>OOP</title>
   <script type="text/javascript" src="oop.js"></script>
+  <link rel="stylesheet" type="text/css" href="../00-html-intro/styles/myStyle.css">
   <link rel="stylesheet" type="text/css" href="oop.css">
 </head>
 <body>
+  <div id="personTable">
+    <h1>Persons</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Birth date</th>
+          <th>Gender</th>
+        </tr>
+      </thead>
+      <tbody id="personTableBody">
+
+      </tbody>
+    </table>
+  </div>
   <div id="personFormContainer" class="form">
+    <h1>Add a person:</h1>
     <form name="personForm" onsubmit="submitHandler(event)">
       <label for="name">Name:</label>
       <input type="text" id="name" name="name"><br/>

@@ -8,14 +8,36 @@ html {
 /*}*/
 
 table {
-	font-size: 10px;
+	font-size: 1.2rem;
 	background-color: #fff;
 	color: #222;
-	margin: 20px;
+	border-bottom: 1px solid lightgray;
+	border-spacing: 0;
+}
+
+table, form {
+	margin: 2rem;
 }
 
 table thead tr {
-	background-color: lightgrey;
+	background-color: dimgray;
+	color: white;
+}
+
+table td {
+	padding: 0.5rem 1rem;
+}
+
+table thead th {
+	padding: 1rem 1rem;
+}
+
+table tbody tr:nth-child(even) {
+	background-color: lightcyan;
+}
+
+table tbody tr:hover {
+	background-color: lightgray;
 }
 
 h1, h2, h3, h4, h5, h6 {

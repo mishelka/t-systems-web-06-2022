@@ -21,8 +21,8 @@ class Person {
 }
 
 class Employee extends Person {
-  constructor(name, age = 0, birthDate = new Date(), jobTitle) {
-    super(name, age, birthDate);
+  constructor(name, age = 0, birthDate = new Date(), gender, jobTitle) {
+    super(name, age, birthDate, gender);
     this.jobTitle = jobTitle;
   }
   describe() {
@@ -31,8 +31,8 @@ class Employee extends Person {
 }
 
 class Student extends Person {
-  constructor(name, age = 0, birthDate = new Date(), isicNumber = "") {
-    super(name, age, birthDate);
+  constructor(name, age = 0, birthDate = new Date(), gender, isicNumber = "") {
+    super(name, age, birthDate, gender);
     this.isicNumber = isicNumber;
   }
   //method overriding
@@ -117,12 +117,16 @@ truck.start();
 console.log(truck);
 
 const persons = [
-  new Person("Michaela", 28),
-  new Employee("Peter", 22, new Date(), "manager"),
-  new Student("Peter", 40),
-  new Person("Maria", 50),
-  new Employee("Peter", 22, new Date(),"copy worker"),
+  new Person("Michaela", 38, new Date(1984, 11, 15), "female"),
+  new Person("Peter", 39, new Date(1983, 0, 14), "male"),
+  new Employee("Peter", 22, new Date(), "male", "manager"),
+  new Student("Maria", 40, new Date(), "female"),
+  new Employee("Peter", 22, new Date(),"male", "copy worker"),
 ];
+
+window.onload = function() {
+  renderTable();
+}
 
 console.log(persons.filter(p => p instanceof Employee));
 
@@ -141,5 +145,22 @@ const submitHandler = (event) => {
   const person = new Person(name, age, birthDate, gender);
   console.log(person);
   persons.push(person);
+  renderTable();
   console.log(persons);
+}
+
+function renderTable() {
+  let tableBody = document.getElementById("personTableBody");
+  console.log(tableBody);
+  tableBody.innerHTML = "";
+  for(let person of persons) {
+    tableBody.innerHTML += `
+      <tr>
+        <td>${person.name}</td>
+        <td>${person.age}</td>
+        <td>${person.birthDate.toLocaleDateString()}</td>
+        <td>${person.gender}</td>
+      </tr>
+    `;
+  }
 }
