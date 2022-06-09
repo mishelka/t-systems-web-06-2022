@@ -9,18 +9,19 @@
 // person.printPerson();
 
 class Person {
-  constructor(name, age = 0) {
+  constructor(name, age = 0, birthDate = new Date()) {
     this.name = name;
     this.age = age;
+    this.birthDate = birthDate;
   }
   describe() {
-    return 'Person called ' + this.name;
+    return `Person called ${this.name}, age ${this.age} born ${this.birthDate.toLocaleDateString()}`;
   }
 }
 
 class Employee extends Person {
-  constructor(name, age = 0, jobTitle) {
-    super(name, age);
+  constructor(name, age = 0, birthDate = new Date(), jobTitle) {
+    super(name, age, birthDate);
     this.jobTitle = jobTitle;
   }
   describe() {
@@ -29,8 +30,8 @@ class Employee extends Person {
 }
 
 class Student extends Person {
-  constructor(name, age = 0, isicNumber = "") {
-    super(name, age);
+  constructor(name, age = 0, birthDate = new Date(), isicNumber = "") {
+    super(name, age, birthDate);
     this.isicNumber = isicNumber;
   }
   //method overriding
@@ -43,7 +44,7 @@ const personObj = new Person("Michaela");
 console.log(personObj);
 console.log(personObj.describe());
 
-const employee = new Employee('Michaela', 38, 'lector');
+const employee = new Employee('Michaela', 38, new Date(1984, 11, 15), 'lector');
 console.log(employee);
 console.log(employee.describe());
 

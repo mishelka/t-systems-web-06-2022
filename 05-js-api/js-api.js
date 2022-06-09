@@ -86,3 +86,53 @@ let sorted = persons.sort(
   }
 );
 console.log(sorted);
+
+//STRINGS
+
+console.log("jahoda".charAt(2) + 89430284);
+console.log("jahoda"[4]);
+const str = "Toto je nejaka dlha veta";
+console.log(str.lastIndexOf('a'), str.length);
+console.log(str.substring(4, str.length));
+console.log(str.toUpperCase());
+console.log(str.split(' '));
+
+const multiline = "Hello \
+World!";
+const backtick = `
+Toto je \n\n\n string
+na viacerych
+riadkoch.
+`;
+
+console.log(multiline, backtick);
+console.log(str.includes("nejaka"));
+
+console.log(Number.MAX_VALUE);
+console.log(Number.MAX_SAFE_INTEGER);
+let num = 5;
+console.log(num.toFixed(3));
+
+num = 5.18;
+console.log("cbrt", Math.cbrt(num));
+
+const date = new Date();
+console.log(date);
+console.log(date.toLocaleDateString());
+console.log(date.toLocaleTimeString());
+console.log(date.toLocaleString());
+console.log(Date.now());
+console.log(date.getTime());
+console.log(date.getMonth());
+
+const regex = /^(?<year>\d{2})(?<month>\d{2})(?<day>\d{2})(?<lastDigits>\d{3,4})$/g;
+const rodnecislo = "1234567890";
+console.log(rodnecislo.match(regex));
+const result = regex.exec(rodnecislo);
+console.log(result);
+if(Number.parseInt(result[3]) > 31) console.log("nespravne rodne cislo");
+if(Number.parseInt(result.groups.day) > 31) console.log("nespravne rodne cislo");
+
+const intervalId = setInterval(() => console.log("toto je casovac"), 1000);
+
+setTimeout(() => clearTimeout(intervalId), 10000);
