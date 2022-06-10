@@ -1,50 +1,88 @@
 //$(document).ready(function () {
 //window.onload(
 $(() => {
-    $("#task").blur(function() {displayErrorMsg(!validate())});
+    $("#task").blur(() => {
+        validateForm();
+    });
     $('#task').focus();
     loadTasksFromStorage();
     showTasks();
+
 });
 
-var tasks = [];
-var count = 0;
+let tasks = [];
+let count = 0;
 
-function doSubmit() {
-    var validated = validate();
-    if(validated) {
-        //var ul = document.getElementById("tasksList");
-        var ul = $("#tasksList");
+function validateForm() {
+    return validate(document.taskForm.task);
+}
+
+function doSubmit(event) {
+    event.preventDefault();
+    const valid = validateForm();
+    if(valid) {
+        //const ul = document.getElementById("tasksList");
+        // const ul = $("#tasksList");
         tasks.push(document.taskForm.task.value);
         storeTasksIntoStorage();
+        showTasks();
     }
     return false;
 }
 
 function reset() {
-    document.taskForm.task.value = "";
+    document.taskForm.reset();
+    // document.taskForm.task.value = "";
 }
 
 function showTasks() {
-    //var ul = document.getElementById("tasksList");
+    //const ul = document.getElementById("tasksList");
     //ul.innerHTML = "";
     $("#tasksList").html("");
-    for(var t in tasks) {
-        //var li = document.createElement("li");
+    for(const t of tasks) {
+        //const li = document.createElement("li");
         //li.innerHTML = tasks[t];
         //$("#tasksList").appendChild(li);
-        $("#tasksList").prepend($("<li>").html(tasks[t]));
+        $("#tasksList").prepend($("<li>").html(t));
     }
 }
 
-function displayErrorMsg(display) {
+function displayErrorMsg(id, display) {
     //document.getElementById("errorMsg").setAttribute("class", (display ? "red" : "hidden"));
     //$("#errorMsg").attr("class", (display ? "red" : "hidden"));
-    if(display) $("#errorMsg").show(); else $("#errorMsg").hide();
+    const errorElem = $("#taskErrors > #" + id);
+    if(display) errorElem.show(); else errorElem.hide();
 }
 
-function validate() {
-    var valid = document.taskForm.task.value && document.taskForm.task.value.length >= 3;
+function validate(inputElem) {
+    if(!inputElem) {
+        displayErrorMsg("required", false);
+        displayErrorMsg("minLength", false);
+        displayErrorMsg("maxLength", false);
+        return true;
+    }
+
+    let valid = true;
+    if(inputElem.required !== null) {
+        const isValue = inputElem.value.length > 0;
+        displayErrorMsg("required", !isValue);
+        valid &&= isValue;
+        if(!isValue) {
+            displayErrorMsg("minLength", false);
+            displayErrorMsg("maxLength", false);
+            return;
+        }
+    }
+    if(inputElem.minLength !== null) {
+        const isMin = inputElem.value.length >= inputElem.minLength;
+        displayErrorMsg("minLength", !isMin);
+        valid &&= isMin;
+    }
+    if(inputElem.maxLength !== null) {
+        const isMax = inputElem.value.length <= inputElem.maxLength;
+        displayErrorMsg("maxLength", !isMax);
+        valid &&= isMax;
+    }
     return valid;
 }
 
@@ -53,7 +91,7 @@ function storeTasksIntoStorage() {
 }
 
 function loadTasksFromStorage() {
-    var stored = localStorage['tasks'];
+    const stored = localStorage['tasks'];
     if (stored) tasks = JSON.parse(stored);
     else tasks = [];
 }

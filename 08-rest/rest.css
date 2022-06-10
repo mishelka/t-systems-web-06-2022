@@ -1,0 +1,26 @@
+.form label {
+    font-size: small;
+}
+
+.form .radioGroup label {
+    font-size: initial;
+}
+
+.form input[type="text"], .form input[type="date"] {
+    margin-bottom: 1rem;
+    margin-left: 0.5rem;
+}
+.form .radioGroup input[type="radio"] {
+    margin-left: 2rem;
+}
+
+.form .radioGroup input[type="radio"]:first-child {
+    margin-top: 0.5rem;
+}
+.form .radioGroup input[type="radio"]:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+#personTable {
+    margin: 2rem 0;
+}

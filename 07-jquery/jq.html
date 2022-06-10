@@ -32,13 +32,22 @@
     <H1>TODO TASKS 2</H1>
     <div class="flex-div">
         <form name="taskForm">
-            <input type="text" id="task"
+            <input type="text" id="task" name="task"
+                   minLength="3" maxLength="30" required
                    onfocus="displayErrorMsg(false);">
-            <div id="errorMsg" class="red" style="height:16px;">
-                Zadanie ulohy musi byt dlhsie ako 3 znaky
+            <div id="taskErrors" class="red" style="height:16px;">
+                <span id="minLength">
+                    Zadanie ulohy musi byt dlhsie ako 3 znaky.
+                </span>
+                <span id="maxLength">
+                    Zadanie ulohy musi byt kratsie ako 30 znakov.
+                </span>
+                <span id="required">
+                    Zadanie ulohy je povinne.
+                </span>
             </div>
             <br/><br/>
-            <input type="submit" id="submitForm" onclick="doSubmit()"/>
+            <input type="submit" id="submitForm" onclick="doSubmit(event)"/>
             <input type="reset" id="resetForm" onclick="reset()"/>
             <br/><br/>
             Zoznam tvojich uloh:
@@ -57,7 +66,7 @@
     </p>
     <p class="text">Toto je dlhsi text 3</p>
  -->
-<!--<script src="oop.js"></script>-->
+<!--<script src="rest.js"></script>-->
 <!--<input type="text" id="todoInput" placeholder="new todo task"/>-->
 <!--<button id="createTask">Create</button>-->
 <!--<ul id="todoList">-->
